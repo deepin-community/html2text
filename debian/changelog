@@ -1,12 +1,81 @@
-html2text (1.3.2a-28deepin0) unstable; urgency=medium
+html2text (2.2.3-3) unstable; urgency=medium
 
-  * No source change upload against GCC 12.
+  [ Bruno Naibert de Campos ]
+  * New upstream homepage.
+  * debian/control: bumped Standards-Version to 4.7.0.
 
- -- Tianyu Chen <sweetyfish@deepin.org>  Thu, 19 Sep 2024 22:49:23 +0800
+  [ Andrea Pappacoda ]
+  * debian/patches/010_string-before-concat.patch: Added to fix input
+    type=checkbox output (Closes: #1077671)
+
+ -- Bruno Naibert de Campos <bruno.naibert@gmail.com>  Sun, 27 Oct 2024 09:15:28 -0300
+
+html2text (2.2.3-2) unstable; urgency=medium
+
+  [ Boyuan Yang ]
+  * New upstream version 2.2.3. (Closes: #963701)
+  * debian/watch: Fix monitoring script.
+  * debian/control: Bump Standards-Version to 4.6.2..
+  * debian/README.source: Dropped, completely useless.
+  * debian/rules: Use dpkg buildtools.mk to provide CC.
+  * debian/docs: Refresh and rename to html2text.docs.
+  * debian/patches/:
+    - 100-fix-makefile.patch: Dropped, upstream migrated to autotools.
+    - 110-triplet-cc.patch: Dropped, ditto.
+    - 200-close-files-inside-main-loop.patch: Dropped. Program rewritten
+      in cpp, patch no longer applicable. Besides, this patch is almost
+      meaningless given html2text does not execute long.
+    - 400-remove-builtin-http-support.patch: Dropped. We do not add
+      extra patches to diverge from upstream development.
+    - 500-utf8-support.patch: Dropped, upstream has utf8 support by default.
+
+  [ Bruno Naibert de Campos ]
+  * Removed Debian customizations. Consequently:
+      - debian/control: Removed information about in the long description.
+      - debian/NEWS: Added information about this change.
+      - debian/patches/: Removed:
+          ~ 510-disable-backspaces.patch.
+          ~ 611-recognize-input-encoding.patch.
+          ~ 630-recode-output-to-locale-charset.patch.
+      - debian/README.Debian: No longer needed.
+  * Removed specific script for testing. Consequently:
+      - debian/tests/runtests: Removed.
+      - debian/rules: Removed override_dh_auto_test.
+  * debian/copyright:
+      - Removed a comment from the first copyright block.
+      - Updated the packaging and upstream copyright years.
+  * debian/examples: Updated file path.
+  * debian/html2text.1: Removed. Manpage added by upstream.
+  * debian/html2text.docs: added the upstream HISTORY file.
+  * debian/manpages: Updated manpages location.
+  * debian/NEWS: Added information about removing Debian customizations.
+  * debian/patches/:
+      - The upstream fixed some points in source code. Consequently, removed:
+          ~ 550-skip-numbers-in-html-tag-attributes.patch.
+          ~ 600-multiple-meta-tags.patch.
+          ~ 800-replace-zeroes-with-null.patch.
+          ~ 810-fix-deprecated-conversion-warnings.patch.
+          ~ 900-complete-utf8-entities-table.patch.
+          ~ 950-validate-width-parameter.patch.
+          ~ 960-fix-utf8-mode-quadratic-runtime.patch.
+          ~ 970-fix-arg-parsing.patch.
+          ~ 980-catch-alloc-err.patch.
+  * debian/rules:
+      - Removed override_dh_installman. The upstream fixed the source
+        code.
+      - Removed no more needed override_dh_auto_clean and
+        override_dh_auto_install.
+  * debian/source/lintian-overrides:
+      - Added override a false positive.
+      - Updated renamed tag.
+  * debian/tests/control: Updated tests to be compliant with the new upstream
+    version.
+
+ -- Bruno Naibert de Campos <bruno.naibert@gmail.com>  Sat, 20 Jan 2024 03:24:02 -0300
 
 html2text (1.3.2a-28) unstable; urgency=medium
 
-  * New manteiner. (Closes: #951882)
+  * New maintainer. (Closes: #951882)
 
  -- Bruno Naibert de Campos <bruno.naibert@gmail.com>  Tue, 23 Jun 2020 17:20:10 -0300
 
@@ -359,7 +428,7 @@ html2text (1.3.2a-6) experimental; urgency=low
       500-utf8-support.patch, thus has been deleted.
   * debian/html2text.1:
     - Added to avoid hard-to-parse-and-maintain sed expressions in
-      debian/rules. Added explaination for new '-utf8' option.
+      debian/rules. Added explanation for new '-utf8' option.
 
  -- Eugene V. Lyubimkin <jackyf.devel@gmail.com>  Mon, 04 Aug 2008 22:36:39 +0300
 
