@@ -1,3 +1,14 @@
+html2text (2.2.3-2) unstable; urgency=medium
+
+  Upstream has resumed development.
+  Consequently, removed Debian customizations so that there are no divergences
+  between the upstream version and the Debian version.
+  Many of the features are present in this new version.
+
+  For more usage information, see the manpage.
+
+ -- Bruno Naibert de Campos <bruno.naibert@gmail.com>  Sun, 14 Jan 2024 02:11:07 -0300
+
 html2text (1.3.2a-10) experimental; urgency=low
 
     Added support for output recoding, see README.Debian, section 'Output
@@ -24,3 +35,12 @@ html2text (1.3.2a-6) experimental; urgency=low
     '-utf8' in manual page.
 
  -- Eugene V. Lyubimkin <jackyf.devel@gmail.com>  Mon, 04 Aug 2008 23:36:06 +0300
+html2text (2.2.3-2) experimental; urgency=medium
+
+    Added support for output recoding, see README.Debian, section 'Output
+    recoding'.
+
+    Due to UTF-8 issues, backspaces in output are disabled now. See
+    README.Debian, section 'Backspaces' for more info.
+
+ -- Bruno Naibert de Campos <bruno.naibert@gmail.com>  Sun, 14 Jan 2024 02:11:07 -0300

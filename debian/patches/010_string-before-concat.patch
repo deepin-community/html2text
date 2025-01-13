@@ -1,0 +1,25 @@
+Description: format(input): convert to string before concat
+ The checked character for `<input type="checkbox">` was concatenated to
+ the '[' and ']' characters before converting it to string, which
+ resulted in an expression like '[' + 'X' + ']', which results in an
+ arithmetic sum between the integer values of the three characters,
+ leading to an unexpected result.
+ .
+ To fix this, simply wrap the checked ternary expression with a braced
+ string constructor.
+Author: Andrea Pappacoda <andrea@pappacoda.it>
+Bug-Debian: https://bugs.debian.org/1077671
+Forwarded: https://gitlab.com/grobian/html2text/-/merge_requests/54
+Last-Update: 2024-09-12
+
+--- html2text-2.2.3.orig/format.cpp
++++ html2text-2.2.3/format.cpp
+@@ -908,7 +908,7 @@ Input::line_format() const
+ 			size = 20;
+ 		res = '[' + string(size, '*') + ']';
+ 	} else if (cmp_nocase(type, "CHECKBOX") == 0) {
+-		res = '[' + (checked ? 'X' : ' ') + ']';
++		res = '[' + string{checked ? 'X' : ' '} + ']';
+ 	} else if (cmp_nocase(type, "RADIO") == 0) {
+ 		res = checked ? '#' : 'o';
+ 	} else if (cmp_nocase(type, "SUBMIT") == 0) {

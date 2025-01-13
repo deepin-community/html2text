@@ -1,18 +1,8 @@
-
-
-
-
-
-
-
-
-
- [Debian_Project]
- Select a server near you
+[Debian_Project]
+Select a server near you
 [One of: Australia/Austria/Brazil/Bulgaria/China/France/Germany/Hong Kong/
 Indonesia/Japan/Netherlands/Russia/South Africa/Spain/Ukraine/United Kingdom/
-United States] [ Go ]
-
+United States][ Go ]
 Skip_Quicknav
     * About_Debian
     * News
@@ -21,7 +11,6 @@ Skip_Quicknav
     * Developers' Corner
     * Site_map
     * Search
-
     * About
           o Social Contract
           o Free Software
@@ -113,7 +102,6 @@ Italiano magyar Nederlands 日本語 (Nihongo) norsk (bokmål) polski Portugu�
 Русский (Russkij) slovensky suomi svenska தமிழ் (Tamil) українська 
 (ukrajins'ka) 中文(简) 中文(HK) 中文(繁)
 How to set the_default_document_language
-
 ===============================================================================
 To report a problem with the web site, e-mail debian-www@lists.debian.org. For
 other contact information, see the Debian contact_page.
